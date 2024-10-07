@@ -1,0 +1,59 @@
+class Chatbot:
+    def __init__(self):
+        self.user_name = ""
+        self.user_age = 0
+
+    def welcome_user(self):
+        print("Welcome to the SWAMP chatbot! How May I help You?")
+
+    def collect_user_info(self):
+        self.user_name = input("What is your name? ")
+        self.user_age = int(input("How old are you? "))
+
+    def ask_how_to_help(self):
+        print(f"Nice to meet you, {self.user_name}! How can I assist you today?")
+
+    def display_menu(self):
+        print("Please choose an option from the list below:")
+        print("1. Ask a question")
+        print("2. Get a recommendation")
+        print("3. Just chat")
+        print("4. Exit")
+
+    def main(self):
+        self.welcome_user()
+        self.collect_user_info()
+        self.ask_how_to_help()
+
+        while True:
+            self.display_menu()
+            choice = input("Enter your choice (1-4): ")
+
+            if choice == "1":
+                self.handle_question()
+            elif choice == "2":
+                self.handle_recommendation()
+            elif choice == "3":
+                self.handle_chat()
+            elif choice == "4":
+                print("Thank you for chatting! Goodbye!")
+                break
+            else:
+                print("Invalid choice, please try again.")
+
+    def handle_question(self):
+        question = input("What is your question? ")
+        print(f"You asked: {question}. I'll do my best to answer!")
+
+    def handle_recommendation(self):
+        topic = input("What topic would you like a recommendation on? ")
+        print(f"Here’s a recommendation for {topic}!")
+
+    def handle_chat(self):
+        chat_input = input("What would you like to talk about? ")
+        print(f"Let’s chat about: {chat_input}")
+
+if __name__ == "__main__":
+    chatbot = Chatbot()
+    chatbot.main()
+
